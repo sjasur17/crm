@@ -1,0 +1,21 @@
+{% extends 'clients/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4>{% if form.instance.pk %}✏️ Mijozni tahrirlash{% else %}➕ Yangi mijoz{% endif %}</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">
+                    {% if form.instance.pk %}Saqlash{% else %}Qo‘shish{% endif %}
+                </button>
+                <a href="{% url 'client_list' %}" class="btn btn-secondary">Bekor qilish</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

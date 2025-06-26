@@ -1,0 +1,15 @@
+{% extends 'clients/base.html' %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="card shadow-sm p-4">
+            <h4 class="mb-3">Haqiqatan ham tizimdan chiqmoqchimisiz?</h4>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Chiqish</button>
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary ms-2">Bekor qilish</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
